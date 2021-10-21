@@ -1,0 +1,49 @@
+
+<% @activities.each do |activity| %>
+  <% link_to activity do %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><% activity.name %></h5>>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Duration</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% require 'date' %> 
+ 
+
+  <tbody>
+    <% @activities.each do |activity| %>
+    <% %>
+      <tr>
+        <td><%= activity.name %></td>
+        <% if activity.date.present? %>
+        <td><%= activity.date.strftime("%d/%m/%Y") %></td>
+        <% end %>
+        <% if activity.duration.present? %>
+        <td><%= activity.duration.strftime("%H:%M") %></td>
+        <% end %>
+        <td><%= activity.user_id %></td>
+        <td><%= link_to 'Show', activity %></td>
+        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Activity', new_activity_path %>

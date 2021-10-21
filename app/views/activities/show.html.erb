@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activity.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @activity.date.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @activity.duration.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @activity.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>
